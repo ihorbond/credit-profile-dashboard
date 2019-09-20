@@ -64,4 +64,8 @@
     <Build Include="SchemaModifications\dbo.Customer.sql" />
     <Build Include="SchemaModifications\dbo.CreditProfile.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="InsertScripts\InsertCustomer.sql" />
+    <None Include="InsertScripts\InsertCreditProfiles.sql" />
+  </ItemGroup>
 </Project>

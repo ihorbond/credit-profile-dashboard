@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[CreditProfile]
 (
-	[Id] INT NOT NULL , 
+	[Id] INT NOT NULL IDENTITY(1,1), 
     [LineOfCredit] MONEY NOT NULL, 
     [Balance] MONEY NOT NULL DEFAULT 0, 
     [CustomerId] INT NOT NULL, 
