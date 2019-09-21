@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CreditProfileService } from '../services/credit-profile.service';
 import { CreditProfile } from '../models/credit-profile';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +11,17 @@ import { CreditProfile } from '../models/credit-profile';
 export class HomeComponent implements OnInit {
   public creditProfile: CreditProfile;
 
-  constructor(private creditProfileService: CreditProfileService) { }
+  constructor(
+    private creditProfileService: CreditProfileService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.loadCreditProfile();
   }
 
   public draw(): void {
-
+    this.router.navigateByUrl("/withdraw");
   }
 
   private loadCreditProfile(): void {
