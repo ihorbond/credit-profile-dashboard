@@ -1,8 +1,11 @@
+using AutoMapper;
+using CreditPortal.ApiModels;
+using CreditPortal.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -26,6 +29,21 @@ namespace CreditPortal
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
+            });
+
+            #region AutoMapperConfig
+            services.AddAutoMapper(typeof(Startup));
+            MapperConfiguration autoMapperConfig = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<CreditProfile, GetCreditProfileResponse>();
+            });
+            IMapper mapper = autoMapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+            #endregion 
+
+            services.AddDbContext<CreditPortalContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("CreditPortal"));
             });
         }
 
