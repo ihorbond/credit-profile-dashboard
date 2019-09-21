@@ -8,7 +8,11 @@ namespace CreditPortal.ApiModels
     public class GetCreditProfileResponse
     {
         public int Id { get; set; }
-        public double LineOfCredit { get; set; }
-        public double Balance { get; set; }
+        public decimal LineOfCredit { get; set; }
+        public decimal Balance { get; set; }
+        public decimal Available
+        {
+            get => LineOfCredit - Balance;
+        }
     }
 }

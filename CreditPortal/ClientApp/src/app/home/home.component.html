@@ -1,2 +1,32 @@
 <h1>Hello, world!</h1>
+<div id="accountOverview">
+  <mat-card>
+    <mat-card-content>
+      <mat-progress-spinner *ngIf="!creditProfile"></mat-progress-spinner>
+      <div *ngIf="creditProfile" class="balances">
+        <div class="amount-group">
+          <span>{{creditProfile.balance | currency:'USD':'symbol':'1.0-2'}}</span>
+          <br />
+          <label>Balance</label>
+        </div>
+        <div class="amount-group">
+          <span>{{creditProfile.available | currency:'USD':'symbol':'1.0-2'}}</span>
+          <br />
+          <label>Available funds</label>
+        </div>
+        <div class="amount-group">
+          <span>{{creditProfile.lineOfCredit | currency:'USD':'symbol':'1.0-2'}}</span>
+          <br />
+          <label>Credit Limit</label>
+        </div>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button id="draw" mat-flat-button (click)="draw()">MAKE A DRAW</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
 <p>{{creditProfile | json}}</p>
+

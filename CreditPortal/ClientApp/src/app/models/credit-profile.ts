@@ -1,7 +1,8 @@
 export class CreditProfile {
   public id: number;
-  public lineOfCredit: number;
   public balance: number;
+  public available: number;
+  public lineOfCredit: number;
 }
 
 export class CreditProfileWithdrawal {
