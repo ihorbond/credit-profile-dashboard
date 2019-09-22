@@ -51,7 +51,7 @@ namespace CreditPortal.Controllers
         /// <param name="body">Update body</param>
         /// <returns>204 No Content</returns>
         [HttpPut("~/api/v1/customers/{id}/creditprofiles/{profileId}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult UpdateCreditProfileById(int id, int profileId, [FromBody] UpdateCreditProfileRequest body)
@@ -78,7 +78,7 @@ namespace CreditPortal.Controllers
 
             _context.SaveChanges();
 
-            return Ok(_mapper.Map<GetCreditProfileResponse>(profile));
+            return NoContent();
         }
     }
 }

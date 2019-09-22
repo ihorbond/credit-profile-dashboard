@@ -17,9 +17,14 @@
   }
   label {
     color: gray;
+    display: block;
   }
 }
 
-#draw {
-  background-color: #4CAF50;
+#makeDraw {
+  display: flex;
+  justify-content: flex-end;
+  button {
+    background-color: #4CAF50;
+  }
 }

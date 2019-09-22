@@ -1,0 +1,16 @@
+$green: #4CAF50;
+
+#withdrawOverview {
+  width: 450px;
+  margin: 0 auto;
+}
+
+#submit {
+  color: $green;
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    font-weight: bold;
+  }
+}

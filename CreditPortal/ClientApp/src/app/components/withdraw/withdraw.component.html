@@ -1,3 +1,19 @@
-<p>
-  withdraw works!
-</p>
+<div id="withdrawOverview">
+  <mat-card>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label class="required">Amount</mat-label>
+        <span matPrefix>$&nbsp;</span>
+        <input matInput [formControl]="withdrawalAmount" />
+        <mat-error *ngIf="withdrawalAmount.hasError('required')">Amount is required</mat-error>
+        <mat-error *ngIf="withdrawalAmount.hasError('min')">Enter $1 or more</mat-error>
+        <mat-error *ngIf="withdrawalAmount.hasError('pattern')">Numbers only</mat-error>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <div id="submit">
+        <button mat-button [disabled]="withdrawalAmount.invalid" (click)="submit()">SUBMIT</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

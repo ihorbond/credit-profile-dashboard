@@ -20,7 +20,7 @@ export class CreditProfileService {
   }
 
   public withdrawMoney(customerId: number, profileId: number, body: CreditProfileWithdrawal): Observable<any> {
-    const url: string = `/api/v1/customers/${customerId}/creditprofiles/${profileId}`;
+    const url: string = `${this.base}/api/v1/customers/${customerId}/creditprofiles/${profileId}`;
     return this.http.put(url, body);
   }
 
