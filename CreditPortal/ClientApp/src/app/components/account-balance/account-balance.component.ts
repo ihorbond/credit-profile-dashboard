@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CreditProfile } from 'src/app/models/credit-profile';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CreditProfileService } from 'src/app/services/credit-profile.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-account-balance',
@@ -32,11 +33,11 @@ export class AccountBalanceComponent implements OnInit {
     this.creditProfileService.getCreditProfile(customerId, creditProfileId)
       .subscribe((res: CreditProfile) => {
         this.creditProfile = res;
-      }, _ => this.showError());
+      }, err => this.showError(err));
   }
 
-  private showError(): void {
-    this.snackBar.open("There was an error processing your request", "Close", { duration: 3000 });
+  private showError(response: HttpErrorResponse): void {
+    this.snackBar.open(response.error, "Close", { duration: 5000 });
   }
 
 }

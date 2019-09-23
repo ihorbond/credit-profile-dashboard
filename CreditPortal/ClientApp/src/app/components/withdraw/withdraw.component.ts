@@ -4,6 +4,7 @@ import { CreditProfileWithdrawal } from 'src/app/models/credit-profile';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-withdraw',
@@ -32,12 +33,12 @@ export class WithdrawComponent implements OnInit {
     const body: CreditProfileWithdrawal = new CreditProfileWithdrawal(this.withdrawalAmount.value);
     this.creditProfileService.withdrawMoney(customerId, creditProfileId, body)
       .subscribe(_ => {
-        this.router.navigateByUrl("");
-    }, _ => this.showError());
+        this.router.navigateByUrl("/home");
+    }, err => this.showError(err));
   }
 
-  private showError(): void {
-    this.snackBar.open("There was an error processing your request", "Close", { duration: 3000 });
+  private showError(response: HttpErrorResponse): void {
+    this.snackBar.open(response.error, "Close", { duration: 5000 });
   }
 
 }
