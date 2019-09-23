@@ -15,12 +15,14 @@ import { WithdrawComponent } from './components/withdraw/withdraw.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AccountBalanceComponent } from './components/account-balance/account-balance.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    WithdrawComponent
+    WithdrawComponent,
+    AccountBalanceComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

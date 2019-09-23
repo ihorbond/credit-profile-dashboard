@@ -1,0 +1,32 @@
+#accountOverview {
+  width: 550px;
+  margin: 0 auto;
+}
+
+.balances {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 50px !important;
+}
+
+.amount-group {
+  span {
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  label {
+    color: gray;
+    display: block;
+  }
+}
+
+#makeDraw {
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    background-color: #4CAF50;
+  }
+}

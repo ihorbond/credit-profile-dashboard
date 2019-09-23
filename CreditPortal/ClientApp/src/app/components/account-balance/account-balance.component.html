@@ -1,0 +1,26 @@
+<div id="accountOverview">
+  <mat-card>
+    <mat-card-content>
+      <mat-progress-spinner *ngIf="!creditProfile"></mat-progress-spinner>
+      <div *ngIf="creditProfile" class="balances">
+        <div class="amount-group">
+          <span>{{creditProfile.balance | currency:'USD':'symbol':'1.0-2'}}</span>
+          <label>Balance</label>
+        </div>
+        <div class="amount-group">
+          <span>{{creditProfile.available | currency:'USD':'symbol':'1.0-2'}}</span>
+          <label>Available funds</label>
+        </div>
+        <div class="amount-group">
+          <span>{{creditProfile.lineOfCredit | currency:'USD':'symbol':'1.0-2'}}</span>
+          <label>Credit Limit</label>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <div id="makeDraw">
+        <button mat-flat-button (click)="withdrawMoney()">MAKE A DRAW</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>
