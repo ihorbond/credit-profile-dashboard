@@ -54,6 +54,7 @@ namespace CreditPortal.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public IActionResult UpdateCreditProfileById(int id, int profileId, [FromBody] UpdateCreditProfileRequest body)
         {
             if (id <= 0 || profileId <= 0)
@@ -70,7 +71,7 @@ namespace CreditPortal.Controllers
                 return NotFound("Account not found");
 
             if (profile.Balance + body.WithdrawalAmount > profile.LineOfCredit)
-                return BadRequest("Insufficient funds");
+                return StatusCode(StatusCodes.Status403Forbidden, "Insufficient funds");
 
             profile.Balance += body.WithdrawalAmount;
             profile.ModifiedOn = DateTime.Now;
