@@ -15,7 +15,7 @@
       <mat-form-field>
         <mat-label class="required">Amount</mat-label>
         <span matPrefix>$&nbsp;</span>
-        <input matInput [formControl]="withdrawalAmount" />
+        <input type="number" matInput [formControl]="withdrawalAmount" />
         <mat-error *ngIf="withdrawalAmount.hasError('required')">Amount is required</mat-error>
         <mat-error *ngIf="withdrawalAmount.hasError('min')">Enter $1 or more</mat-error>
         <mat-error *ngIf="withdrawalAmount.hasError('pattern')">Numbers only</mat-error>

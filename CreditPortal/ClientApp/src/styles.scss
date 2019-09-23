@@ -1,9 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: rgb(238, 238, 238);
+}
+
 .required:after {
   content: " *";
   color: red;
 }
 
-body {
-  background-color: rgb(238, 238, 238);
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
