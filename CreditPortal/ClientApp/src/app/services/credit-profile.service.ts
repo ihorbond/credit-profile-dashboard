@@ -1,14 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { CreditProfile, CreditProfileWithdrawal } from '../models/credit-profile';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CreditProfileService {
 
-  private readonly base: string = "https://localhost:44357";
+  private readonly base: string = environment.apiEndpoint;
 
   constructor(
     private http: HttpClient
