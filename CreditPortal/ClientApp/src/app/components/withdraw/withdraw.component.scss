@@ -1,31 +1,42 @@
-$green: #4CAF50;
+app-withdraw {
+  $green: #4CAF50;
 
-#withdrawOverview {
-  width: 450px;
-  margin: 0 auto;
-}
+  #withdrawOverview {
+    width: 450px;
+    margin: 0 auto;
 
-#submit {
-  color: $green;
-  display: flex;
-  justify-content: flex-end;
+    .mat-form-field-underline, .mat-form-field-ripple {
+      background-color: $green;
+    }
 
-  button {
-    font-weight: bold;
+    .mat-form-field-label {
+      color: $green;
+    }
   }
-}
 
-#navBar {
-  a {
-    color: black;
-    margin-top: 8px;
-  }
-  span {
-    margin-left: 10px;
-    font-weight: 600;
-  }
-}
+  #submit {
+    color: $green;
+    display: flex;
+    justify-content: flex-end;
 
-.mat-toolbar {
-  background-color: white !important;
+    button {
+      font-weight: bold;
+    }
+  }
+
+  #navBar {
+    a {
+      color: black;
+      margin-top: 8px;
+    }
+
+    span {
+      margin-left: 10px;
+      font-weight: 600;
+    }
+  }
+
+  .mat-toolbar {
+    background-color: white !important;
+  }
 }

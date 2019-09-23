@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CreditProfileService } from 'src/app/services/credit-profile.service';
 import { CreditProfileWithdrawal } from 'src/app/models/credit-profile';
 import { Router } from '@angular/router';
@@ -8,7 +8,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-withdraw',
   templateUrl: './withdraw.component.html',
-  styleUrls: ['./withdraw.component.scss']
+  styleUrls: ['./withdraw.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class WithdrawComponent implements OnInit {
 
