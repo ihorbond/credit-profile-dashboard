@@ -6,13 +6,13 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { WithdrawComponent } from './components/withdraw/withdraw.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -26,12 +26,12 @@ import { WithdrawComponent } from './components/withdraw/withdraw.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatMenuModule,
     MatCardModule,
     MatButtonModule,
     MatProgressSpinnerModule,
     MatInputModule,
     MatFormFieldModule,
+    MatToolbarModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'withdraw', component: WithdrawComponent, pathMatch: 'full' }
