@@ -1,7 +1,7 @@
-<div id="accountOverview">
+<div id="accountOverview" class="centered">
   <mat-card>
     <mat-card-content>
-      <mat-progress-spinner *ngIf="!creditProfile"></mat-progress-spinner>
+      <mat-spinner class="centered" *ngIf="!creditProfile"></mat-spinner>
       <div *ngIf="creditProfile" class="balances">
         <div class="amount-group">
           <span>{{creditProfile.balance | currency:'USD':'symbol':'1.0-2'}}</span>
