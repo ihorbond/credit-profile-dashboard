@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CreditProfileService } from '../services/credit-profile.service';
 import { CreditProfile } from '../models/credit-profile';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private creditProfileService: CreditProfileService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -30,8 +32,11 @@ export class HomeComponent implements OnInit {
     this.creditProfileService.getCreditProfile(customerId, creditProfileId)
       .subscribe((res: CreditProfile) => {
         this.creditProfile = res;
-      });
+      }, _ => this.showError());
   }
 
+  private showError(): void {
+    this.snackBar.open("There was an error processing your request", "Close", { duration: 3000 });
+  }
 
 }
